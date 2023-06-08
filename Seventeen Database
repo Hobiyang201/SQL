@@ -1,0 +1,72 @@
+CREATE TABLE seventeen (id INTEGER PRIMARY KEY AUTOINCREMENT, stage_name TEXT, age INTEGER);
+
+INSERT INTO seventeen (stage_name, age) VALUES ("Scoups", "27");
+INSERT INTO seventeen (stage_name, age) VALUES ("Jeonghan", "27");
+INSERT INTO seventeen (stage_name, age) VALUES ("Joshua", "27");
+INSERT INTO seventeen (stage_name, age) VALUES ("Jun", "26");
+INSERT INTO seventeen (stage_name, age) VALUES ("Hoshi", "26");
+INSERT INTO seventeen (stage_name, age) VALUES ("Wonwoo", "26");
+INSERT INTO seventeen (stage_name, age) VALUES ("Woozi", "26");
+INSERT INTO seventeen (stage_name, age) VALUES ("DK", "26");
+INSERT INTO seventeen (stage_name, age) VALUES ("Mingyu", "26");
+INSERT INTO seventeen (stage_name, age) VALUES ("The8", "25");
+INSERT INTO seventeen (stage_name, age) VALUES ("Seungkwan", "25");
+INSERT INTO seventeen (stage_name, age) VALUES ("Vernon", "25");
+INSERT INTO seventeen (stage_name, age) VALUES ("Dino", "24");
+
+CREATE TABLE units (id INTEGER PRIMARY KEY AUTOINCREMENT, member_id INTEGER, name text);
+
+INSERT INTO units (member_id, name) VALUES ("1", "hip-hop");
+INSERT INTO units (member_id, name) VALUES ("2", "vocal");
+INSERT INTO units (member_id, name) VALUES ("3", "vocal");
+INSERT INTO units (member_id, name) VALUES ("4", "performance");
+INSERT INTO units (member_id, name) VALUES ("5", "performance");
+INSERT INTO units (member_id, name) VALUES ("6", "hip-hop");
+INSERT INTO units (member_id, name) VALUES ("7", "vocal");
+INSERT INTO units (member_id, name) VALUES ("8", "vocal");
+INSERT INTO units (member_id, name) VALUES ("9", "hip-hop");
+INSERT INTO units (member_id, name) VALUES ("10", "performance");
+INSERT INTO units (member_id, name) VALUES ("11", "vocal");
+INSERT INTO units (member_id, name) VALUES ("12", "hip-hop");
+INSERT INTO units (member_id, name) VALUES ("13", "performance");
+
+CREATE TABLE best_friends (id INTEGER PRIMARY KEY AUTOINCREMENT, member1_id INTEGER, member2_id INTEGER);
+
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("1", "9");
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("2", "8");
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("4", "10");
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("7", "5");
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("11", "13");
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("3", "6");
+INSERT INTO best_friends (member1_id, member2_id) VALUES ("12", "11");
+
+SELECT seventeen.stage_name AS member, units.name AS unit
+FROM seventeen
+JOIN units
+ON seventeen.id = units.member_id;
+
+SELECT a.stage_name AS best_friend_1, b.stage_name AS best_friend_2
+FROM best_friends
+JOIN seventeen a
+ON a.id = member1_id
+JOIN seventeen b
+ON b.id = member2_id;
+
+SELECT seventeen.stage_name AS hip_hop_unit
+FROM seventeen
+JOIN units
+ON seventeen.id = units.member_id
+WHERE units.name = "hip-hop";
+
+SELECT seventeen.stage_name AS vocal_unit
+FROM seventeen
+JOIN units
+ON seventeen.id = units.member_id
+WHERE units.name = "vocal";
+
+SELECT seventeen.stage_name AS performance_unit
+FROM seventeen
+JOIN units
+ON seventeen.id = units.member_id
+WHERE units.name = "performance" 
+
