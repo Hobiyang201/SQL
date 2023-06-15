@@ -1,0 +1,29 @@
+CREATE TABLE daily_tarot (id INTEGER PRIMARY KEY AUTOINCREMENT, date INTEGER, card_of_the_day TEXT, feeling TEXT, reading TEXT);
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-11", "5 of pentacles", "anxious", "Ask for help because you will get it.");
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-12", "4 of swords", "tired", "You deserve rest, peace and stillness.");
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-13", "8 of pentacles", "sad", "The universe creates through me");
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-14", "6 of pentacles", "confused", "Compassion and understanding brings understanding.");
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-15", "ace of cups", "sore", "New beginnings with overflowing feelings");
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-16", "page of wands", "at peace", "It is the start of a new way of expressing yourself.");
+
+INSERT INTO daily_tarot (date, card_of_the_day, feeling, reading) VALUES ("2023-06-17", "knight of pentacles", "tense", "Giving up is not an option.");
+
+SELECT * FROM daily_tarot;
+
+SELECT * FROM daily_tarot 
+    WHERE feeling = "at peace";
+    
+UPDATE daily_tarot SET feeling = "peaceful" WHERE feeling = "at peace";
+SELECT * FROM daily_tarot;
+
+SELECT * FROM daily_tarot 
+    WHERE id = 7;
+    
+DELETE FROM daily_tarot WHERE id = 7;
+SELECT * FROM daily_tarot;
