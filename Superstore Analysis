@@ -1,0 +1,28 @@
+--- In this SQL, I'm querying a database for a ecommerce store
+
+--- Select all items and order the items by price
+
+SELECT item_name, price
+	FROM superstore
+	ORDER BY price;
+
+--- Find the average price of all the items in the store
+    
+SELECT AVG(price)
+	FROM superstore;
+
+--- Find the average price of all the items in the kichen supplies category
+    
+SELECT AVG(price)
+	FROM superstore
+	WHERE category='Kitchen Supplies';
+
+--- Find which item has the least stock in the kitchen supplies category
+    
+SELECT item_name, MIN(stock_quantity)
+	FROM superstore
+    WHERE category='Kitchen Supplies' 
+    GROUP BY item_name
+    ORDER BY MIN(stock_quantity) 
+    Limit 1;
+   
